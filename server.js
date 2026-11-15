@@ -13,12 +13,20 @@ const ex4 = require('./exercise4');
 const ex5 = require('./exercise5');
 const ex6 = require('./exercise6');
 
+// Mount exercises with specific prefixes
 app.use('/ex1', ex1);
 app.use('/ex2', ex2);
 app.use('/ex3', ex3);
 app.use('/ex4', ex4);
 app.use('/ex5', ex5);
 app.use('/ex6', ex6);
+
+// Also mount routes directly so requests to http://localhost:3000/api/... work immediately!
+app.use(ex1); // /api/books
+app.use(ex2); // /api/attendance
+app.use(ex3); // /api/results
+app.use(ex5); // /api/appointments
+app.use(ex6); // /api/menu, /api/orders
 
 // Interactive Landing Page
 app.get('/', (req, res) => {
