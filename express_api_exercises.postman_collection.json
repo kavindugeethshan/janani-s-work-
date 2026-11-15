@@ -1,0 +1,437 @@
+{
+  "info": {
+    "name": "Node Express API Lab - Exercises 1 to 6",
+    "description": "Postman collection with pre-configured requests and JSON payloads for all 6 Express API exercises.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Exercise 1: Book Store API",
+      "item": [
+        {
+          "name": "1. GET All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"]
+            }
+          }
+        },
+        {
+          "name": "2. GET Book by ID (1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books", "1"]
+            }
+          }
+        },
+        {
+          "name": "3. POST Add New Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Mastering Node.js\",\n  \"price\": 2500\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exercise 2: Student Attendance Logger API",
+      "item": [
+        {
+          "name": "1. GET All Attendance Records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance"]
+            }
+          }
+        },
+        {
+          "name": "2. GET Attendance Record by ID (1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance", "1"]
+            }
+          }
+        },
+        {
+          "name": "3. POST Mark/Log Student Attendance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"regNo\": \"AS2023003\",\n  \"studentName\": \"Sithum\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exercise 3: Academic Course Grading API",
+      "item": [
+        {
+          "name": "1. GET All Student Results",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/results",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "results"]
+            }
+          }
+        },
+        {
+          "name": "2. POST Grade Student Result (Grade A)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Chathura\",\n  \"marks\": 82\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/results",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "results"]
+            }
+          }
+        },
+        {
+          "name": "3. POST Grade Student Result (Grade B)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Hiruni\",\n  \"marks\": 70\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/results",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "results"]
+            }
+          }
+        },
+        {
+          "name": "4. POST Grade Student Result (Grade C)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ravi\",\n  \"marks\": 55\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/results",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "results"]
+            }
+          }
+        },
+        {
+          "name": "5. POST Grade Student Result (Grade Fail)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Bawantha\",\n  \"marks\": 42\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/results",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "results"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exercise 4: Library Book Search with Query Params",
+      "item": [
+        {
+          "name": "1. GET All Library Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"]
+            }
+          }
+        },
+        {
+          "name": "2. GET Books Filtered by Category (Programming)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books?category=Programming",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Programming"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "3. GET Single Book by ID (2)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/books/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books", "2"]
+            }
+          }
+        },
+        {
+          "name": "4. POST Add New Library Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Cloud Native Architectures\",\n  \"category\": \"Cloud Computing\",\n  \"available\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "books"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exercise 5: Hospital Appointment Booking API",
+      "item": [
+        {
+          "name": "1. GET All Scheduled Appointments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/appointments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "appointments"]
+            }
+          }
+        },
+        {
+          "name": "2. POST Book Appointment (Valid)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientName\": \"Anula Weerasinghe\",\n  \"doctorName\": \"Dr. Jayasuriya\",\n  \"date\": \"2026-11-25\",\n  \"timeSlot\": \"11:30 AM\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/appointments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "appointments"]
+            }
+          }
+        },
+        {
+          "name": "3. POST Book Appointment (Missing Fields - 400 Bad Request)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientName\": \"Kamal\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/appointments",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "appointments"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exercise 6: University Canteen Food Ordering System",
+      "item": [
+        {
+          "name": "1. GET Food Menu & Stock",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/menu",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "menu"]
+            }
+          }
+        },
+        {
+          "name": "2. POST Place Order (Successful)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 1,\n  \"quantity\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "3. POST Place Order (Insufficient Stock - 400 Bad Request)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 3,\n  \"quantity\": 500\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "4. POST Place Order (Unknown Item - 404 Not Found)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 999,\n  \"quantity\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "5. GET All Placed Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+

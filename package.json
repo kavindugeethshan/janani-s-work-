@@ -1,0 +1,28 @@
+{
+  "name": "express-api-exercises",
+  "version": "1.0.0",
+  "description": "Node.js & Express REST API Exercises (Lab Exercises 1 to 6)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "ex1": "node exercise1.js",
+    "ex2": "node exercise2.js",
+    "ex3": "node exercise3.js",
+    "ex4": "node exercise4.js",
+    "ex5": "node exercise5.js",
+    "ex6": "node exercise6.js",
+    "test": "node test_all.js",
+    "test:e2e": "node e2e_verification.js"
+  },
+  "keywords": [
+    "express",
+    "rest-api",
+    "nodejs",
+    "postman"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
