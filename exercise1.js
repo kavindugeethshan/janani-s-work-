@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware to parse incoming JSON request bodies
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Log incoming requests in terminal
 app.use((req, res, next) => {
@@ -36,6 +37,13 @@ app.get('/api/books/:id', (req, res) => {
 
 // 3. POST /api/books -> Add a new book to the array
 app.post('/api/books', (req, res) => {
+  // Validate that request body exists and was parsed by express.json()
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({
+      message: "Request body is required. Ensure 'Content-Type: application/json' header is sent with a valid JSON body."
+    });
+  }
+
   const { title, price } = req.body;
 
   if (!title || price === undefined) {
@@ -51,6 +59,14 @@ app.post('/api/books', (req, res) => {
 
   books.push(newBook);
   res.status(201).json(newBook);
+});
+
+// Error-handling middleware for JSON syntax errors
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).json({ message: "Malformed JSON in request body" });
+  }
+  next(err);
 });
 
 // Start the server if run directly

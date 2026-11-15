@@ -32,6 +32,12 @@ app.get('/api/orders', (req, res) => {
 
 // 2. POST /api/orders — Place a food order
 app.post('/api/orders', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({
+      message: "Request body is required. Ensure 'Content-Type: application/json' header is sent with a valid JSON body."
+    });
+  }
+
   const { itemId, quantity } = req.body;
 
   // Validate inputs

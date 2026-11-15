@@ -48,6 +48,12 @@ app.get('/api/books/:id', (req, res) => {
 
 // 3. POST /api/books — Add a new book (validating title and category are not empty strings)
 app.post('/api/books', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({
+      message: "Request body is required. Ensure 'Content-Type: application/json' header is sent with a valid JSON body."
+    });
+  }
+
   const { title, category, available } = req.body;
 
   // Validate that title and category are non-empty strings

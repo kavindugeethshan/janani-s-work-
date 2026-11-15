@@ -45,6 +45,12 @@ app.get('/api/results/:id', (req, res) => {
 // 2. POST /api/results — Client sends { "name": "...", "marks": 72 }
 // Server calculates grade, pushes new object to array, and returns 201 Created
 app.post('/api/results', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({
+      message: "Request body is required. Ensure 'Content-Type: application/json' header is sent with a valid JSON body."
+    });
+  }
+
   const { name, marks } = req.body;
 
   if (!name || marks === undefined || typeof marks !== 'number' || marks < 0 || marks > 100) {

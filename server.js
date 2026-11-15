@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Log incoming requests to terminal in real-time
 app.use((req, res, next) => {
@@ -119,6 +120,14 @@ app.get('/', (req, res) => {
 </body>
 </html>
   `);
+});
+
+// Error-handling middleware for JSON syntax errors
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).json({ message: "Malformed JSON in request body" });
+  }
+  next(err);
 });
 
 // Start unified server

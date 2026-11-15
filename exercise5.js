@@ -35,6 +35,14 @@ app.get('/api/appointments/:id', (req, res) => {
 
 // 2. POST /api/appointments — Add a new appointment with strict input validation
 app.post('/api/appointments', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({
+      status: "Error",
+      message: "Request body is required. Ensure 'Content-Type: application/json' header is sent with a valid JSON body.",
+      errors: ["Request body is missing or invalid"]
+    });
+  }
+
   const { patientName, doctorName, date, timeSlot } = req.body;
 
   // Strict validation: check all required fields exist and are non-empty strings

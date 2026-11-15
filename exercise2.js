@@ -36,6 +36,12 @@ app.get('/api/attendance/:id', (req, res) => {
 
 // 3. POST /api/attendance — Receives regNo and studentName, auto-sets id and defaults present: true, returns 201 Created
 app.post('/api/attendance', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({
+      message: "Request body is required. Ensure 'Content-Type: application/json' header is sent with a valid JSON body."
+    });
+  }
+
   const { regNo, studentName } = req.body;
 
   if (!regNo || !studentName) {
