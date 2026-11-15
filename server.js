@@ -5,6 +5,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Log incoming requests to terminal in real-time
+app.use((req, res, next) => {
+  console.log(`📡 [${new Date().toLocaleTimeString()}] ${req.method} ${req.originalUrl || req.url}`);
+  next();
+});
+
 // Helper function to mount an app on a prefix without double-prefixing issues
 const ex1 = require('./exercise1');
 const ex2 = require('./exercise2');

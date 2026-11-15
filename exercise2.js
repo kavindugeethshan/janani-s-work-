@@ -5,6 +5,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Log incoming requests in terminal
+app.use((req, res, next) => {
+  console.log(`📡 [${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`);
+  next();
+});
+
 // In-memory data model
 let attendance = [
   { id: 1, regNo: "AS2023001", studentName: "Kasun", present: true },
